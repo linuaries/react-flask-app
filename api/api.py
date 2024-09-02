@@ -1,10 +1,10 @@
 import time
 from flask import Flask, jsonify  # Add jsonify import
 from datetime import datetime  # Add datetime import
-
+from flask_cors import CORS
 
 app = Flask(__name__, static_folder='../build', static_url_path='/')
-
+CORS(app)  # Enable CORS for all routes
 
 @app.errorhandler(404)
 def not_found(e):
