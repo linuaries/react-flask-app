@@ -5,6 +5,7 @@ import './App.css';
 
 function App() {
   const [currentTime, setCurrentTime] = useState(0);
+  const [camView, setCamView] = useState('Front');
 
   useEffect(() => {
     fetch('/api/time').then(res => res.json()).then(data => {
@@ -20,6 +21,12 @@ function App() {
             <Link className="App-link" to="/">Home</Link>
             &nbsp;|&nbsp;
             <Link className="App-link" to="/page2">Page2</Link>
+            <select value={camView} onChange={(e) => setCamView(e.target.value)}>
+            <option value="Front">Front</option>
+            <option value="Right">Right</option>
+            <option value="Left">Left</option>
+            <option value="Back">Back</option>
+            </select>
           </div>
           <Switch>
             <Route exact path="/">

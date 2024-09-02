@@ -2,6 +2,7 @@ import time
 from flask import Flask, jsonify  # Add jsonify import
 from datetime import datetime  # Add datetime import
 
+
 app = Flask(__name__, static_folder='../build', static_url_path='/')
 
 
@@ -18,7 +19,11 @@ def index():
 @app.route('/api/time')
 def get_current_time():
     try:
-        current_time = datetime.now(datetime.timezone.utc).isoformat() + 'Z'  # ISO 8601 format with UTC timezone
+        now = datetime.now()
+        current_time = now.strftime("%H:%M:%S")
         return jsonify({'time': current_time})
     except Exception as e:
         return str(e), 500  # Add error handling response
+
+if __name__ == '__main__':
+    app.run(debug=True)
