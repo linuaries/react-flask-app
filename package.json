@@ -12,11 +12,11 @@
     "react-scripts": "3.4.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "start-api": "cd api && venv/bin/flask run --no-debugger",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts start",
+    "start-api": "set NODE_OPTIONS=--openssl-legacy-provider && cd api && venv/bin/flask run --no-debugger",
+    "build": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts build",
+    "test": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts test",
+    "eject": "set NODE_OPTIONS=--openssl-legacy-provider && react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
